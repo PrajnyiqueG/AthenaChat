@@ -103,7 +103,7 @@ async function getDiningInfo() {
 }
 
 export default function DiningInformation() {
-  const [diningInfo, setDiningInfo] = useState(null)
+  const [diningInfo, setDiningInfo] = useState<any>(null)
 
   useEffect(() => {
     getDiningInfo().then(setDiningInfo)
@@ -130,7 +130,7 @@ export default function DiningInformation() {
         </CardHeader>
         <CardContent>
           <div className="grid gap-4">
-            {diningInfo?.menu.map((item, index) => (
+            {diningInfo?.menu.map((item:any, index:number) => (
               <motion.div
                 key={item.id}
                 initial={{ y: 20, opacity: 0 }}
@@ -177,7 +177,7 @@ export default function DiningInformation() {
                 <DialogTitle>Full Menu</DialogTitle>
               </DialogHeader>
               <div className="grid gap-4 max-h-[60vh] overflow-y-auto">
-                {diningInfo?.fullMenu.map((item, index) => (
+                {diningInfo?.fullMenu.map((item:any, index:number) => (
                   <motion.div
                     key={item.id}
                     initial={{ opacity: 0, y: 20 }}

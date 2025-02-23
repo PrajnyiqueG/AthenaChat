@@ -39,25 +39,25 @@ async function getAssignments() {
 }
 
 export default function AssignmentsDeadlines() {
-  const [assignments, setAssignments] = useState([])
-  const [expandedAssignment, setExpandedAssignment] = useState(null)
+  const [assignments, setAssignments] = useState<any>()
+  const [expandedAssignment, setExpandedAssignment] = useState<any>()
   const [selectedFile, setSelectedFile] = useState(null)
   const { toast } = useToast()
 
   useState(() => {
     getAssignments().then(setAssignments)
-  }, [])
+  }, )
 
-  const toggleExpand = (id) => {
+  const toggleExpand = (id: number) => {
     setExpandedAssignment(expandedAssignment === id ? null : id)
   }
 
-  const handleFileChange = (event) => {
+  const handleFileChange = (event: any) => {
     setSelectedFile(event.target.files[0])
   }
 
   const handleSubmit = useCallback(
-    (assignmentId) => {
+    (assignmentId:any) => {
       if (!selectedFile) {
         toast({
           title: "Error",
@@ -70,8 +70,8 @@ export default function AssignmentsDeadlines() {
       // Here you would typically upload the file to your server
       // For this example, we'll just simulate a successful upload
       setTimeout(() => {
-        setAssignments((prevAssignments) =>
-          prevAssignments.map((assignment) =>
+        setAssignments((prevAssignments:any) =>
+          prevAssignments.map((assignment:any) =>
             assignment.id === assignmentId ? { ...assignment, submitted: true } : assignment,
           ),
         )
@@ -86,7 +86,7 @@ export default function AssignmentsDeadlines() {
   )
 
   const handleSendToLMS = useCallback(
-    (assignmentId) => {
+    (assignmentId: any) => {
       // Here you would typically send the submission to the LMS
       // For this example, we'll just simulate a successful send
       setTimeout(() => {
@@ -102,7 +102,7 @@ export default function AssignmentsDeadlines() {
   return (
     <div className="space-y-4">
       <h2 className="text-2xl font-bold">Assignments & Deadlines</h2>
-      {assignments.map((assignment) => (
+      {assignments?.map((assignment:any) => (
         <Card key={assignment.id}>
           <CardHeader>
             <CardTitle className="flex justify-between items-center">

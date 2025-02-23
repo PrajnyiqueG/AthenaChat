@@ -2,7 +2,7 @@ import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid"
 import { Book, Calendar, FileText, Users, MessageCircle, Paperclip, BarChart2, MessageSquare } from "lucide-react"
 
 // Mock data for each class
-const classDashboardData = {
+const classDashboardData:any = {
   "Math 201": {
     title: "Math 201: Linear Algebra",
     items: [
@@ -171,7 +171,7 @@ interface ClassDashboardProps {
 }
 
 export function ClassDashboard({ className, onBackToChat }: ClassDashboardProps) {
-  const classData = classDashboardData[className]
+  const classData:any = classDashboardData[className]
 
   if (!classData) {
     return <div>Class not found</div>
@@ -181,7 +181,7 @@ export function ClassDashboard({ className, onBackToChat }: ClassDashboardProps)
     <div>
       <h1 className="text-2xl font-bold mb-4">{classData.title}</h1>
       <BentoGrid className="max-w-4xl mx-auto">
-        {classData.items.map((item, i) => (
+        {classData.items.map((item:any, i:number) => (
           <BentoGridItem
             key={i}
             title={item.title}
