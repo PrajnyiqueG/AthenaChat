@@ -90,7 +90,7 @@ export default function ClassInformation() {
       ) : (
         <div className="grid gap-6 md:grid-cols-2">
           {classes.map((cls) => (
-            <Card key={cls.id} className="overflow-hidden" glowing>
+            <Card key={cls.id} className="overflow-hidden glowing">
               <div className="relative h-48 w-full">
                 <Image
                   src={cls.image || "/placeholder.svg"}

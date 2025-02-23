@@ -43,21 +43,21 @@ async function getStudyPlan() {
 }
 
 export default function StudyPlanner() {
-  const [studyPlan, setStudyPlan] = useState([])
+  const [studyPlan, setStudyPlan] = useState<any>()
   const [expandedSubject, setExpandedSubject] = useState(null)
 
   useState(() => {
     getStudyPlan().then(setStudyPlan)
-  }, [])
+  }, )
 
-  const toggleExpand = (id) => {
+  const toggleExpand = (id:any) => {
     setExpandedSubject(expandedSubject === id ? null : id)
   }
 
   return (
     <div className="space-y-4">
       <h2 className="text-2xl font-bold">Study Planner</h2>
-      {studyPlan.map((session) => (
+      {studyPlan.map((session:any) => (
         <Card key={session.id}>
           <CardHeader>
             <CardTitle className="flex justify-between items-center">
@@ -80,7 +80,7 @@ export default function StudyPlanner() {
               <div className="mt-4 space-y-2">
                 <h4 className="font-semibold">Topics to Study:</h4>
                 <ul className="list-disc list-inside">
-                  {session.topics.map((topic, index) => (
+                  {session.topics.map((topic:any, index:number) => (
                     <li key={index}>{topic}</li>
                   ))}
                 </ul>

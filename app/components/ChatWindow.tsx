@@ -85,6 +85,7 @@ function ChatWindowContent() {
     }
     setCurrentComponent(action.label)
   }
+  console.log(`messages from ChatWindow: ${messages.map((message) => message)}`);
 
   return (
     <div className="flex flex-col h-screen bg-content text-content-foreground rounded-lg overflow-hidden relative">
@@ -92,7 +93,7 @@ function ChatWindowContent() {
       <div className="flex-grow overflow-y-auto relative z-10">
         <div className="p-4 space-y-4">
           <AnimatePresence>
-            {messages.map((message) => (
+            {messages.map((message:any) => (
               <motion.div
                 key={message.id}
                 initial={{ opacity: 0, y: 20 }}
